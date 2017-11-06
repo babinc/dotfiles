@@ -1,0 +1,9 @@
+[core]
+	editor = nvim
+[push]
+	default = matching
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cD)' --abbrev-commit
+[user]
+	name = Carman Babin
+	email = carman.babin@gmail.com
