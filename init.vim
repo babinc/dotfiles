@@ -41,6 +41,9 @@ set visualbell                    " No beeping.
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
 
+let g:auto_save = 1               " enable AutoSave on Vim startup
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+
 set undodir=~/.vim/.undo//
 
 set backupdir=~/.vim/.backup//
@@ -127,6 +130,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+
+Plug 'https://github.com/vim-scripts/vim-auto-save'
 
 " Track the engine.
 Plug 'SirVer/ultisnips'
