@@ -129,7 +129,7 @@ Plug 'epilande/vim-react-snippets'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
@@ -137,6 +137,10 @@ Plug 'https://github.com/vim-scripts/vim-auto-save'
 
 " Track the engine.
 Plug 'SirVer/ultisnips'
+
+Plug 'vim-scripts/vim-misc'
+
+Plug 'https://github.com/xolox/vim-lua-ftplugin'
 
 "Plug 'Shougo/neosnippet'
 "Plug 'Shougo/neosnippet-snippets'
@@ -154,6 +158,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+let g:ale_fixers = {
+\  'javascript': ['eslint']
+\}
 
 
 let g:deoplete#enable_at_startup = 1
