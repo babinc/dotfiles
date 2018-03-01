@@ -10,14 +10,28 @@ set nocompatible                  " Must come first because it changes other opt
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
-runtime macros/matchit.vim        " Load the matchit plugin.
+" runtime macros/matchit.vim        " Load the matchit plugin.
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 
 set backspace=indent,eol,start    " Intuitive backspacing.
-
 set hidden                        " Handle multiple buffers better.
+set noshowmatch
+
+" NoMatchParen " This doesnt work as it belongs to a plugin, which is only loaded _after_ all files are.
+" Trying disable MatchParen after loading all plugins
+"
+function! g:FuckThatMatchParen ()
+  if exists(":NoMatchParen")
+    :NoMatchParen
+  endif
+endfunction
+
+augroup plugin_initialize
+  autocmd!
+  autocmd VimEnter * call FuckThatMatchParen()
+augroup END
 
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest,full    " Complete files like a shell.
@@ -29,9 +43,9 @@ set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 
 set incsearch                     " Highlight matches as you type.
-set nohlsearch                      " Highlight matches.
+set nohlsearch                    " Highlight matches.
 
-set nowrap                          " Turn on line wrapping.
+set nowrap                        " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 
 set title                         " Set the terminal's title
