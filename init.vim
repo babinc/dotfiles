@@ -156,6 +156,9 @@ Plug 'vim-scripts/vim-misc'
 
 Plug 'https://github.com/xolox/vim-lua-ftplugin'
 
+"TMUX / VIM Naviagor
+Plug 'christoomey/vim-tmux-navigator'
+
 "RUST
 Plug 'https://github.com/vim-syntastic/syntastic.git'
 Plug 'rust-lang/rust.vim'
