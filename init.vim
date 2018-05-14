@@ -71,9 +71,9 @@ let g:airline_theme='luna'
 set backupcopy=yes
 
 " UNCOMMENT TO USE
-set softtabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
+set shiftwidth=2                 " And again, related.
+set softtabstop=2                    " Global tab width.
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
@@ -155,6 +155,8 @@ Plug 'SirVer/ultisnips'
 Plug 'vim-scripts/vim-misc'
 
 Plug 'https://github.com/xolox/vim-lua-ftplugin'
+
+Plug 'rust-lang/rust.vim'
 
 "Plug 'Shougo/neosnippet'
 "Plug 'Shougo/neosnippet-snippets'

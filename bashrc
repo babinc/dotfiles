@@ -44,6 +44,9 @@ export PATH=/home/carman/.local/bin:/home/carman/.nvm/versions/node/v8.1.4/bin:/
 export NODE_ENV=development
 export PORT=3001
 
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
