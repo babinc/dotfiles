@@ -21,7 +21,7 @@ set noshowmatch
 
 " NoMatchParen " This doesnt work as it belongs to a plugin, which is only loaded _after_ all files are.
 " Trying disable MatchParen after loading all plugins
-"
+
 function! g:FuckThatMatchParen ()
   if exists(":NoMatchParen")
     :NoMatchParen
@@ -84,7 +84,7 @@ let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_concepts_highlight = 1
 " Or use vividchalk
-colorscheme monokai-phoenix
+colorscheme monokai
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -156,7 +156,14 @@ Plug 'vim-scripts/vim-misc'
 
 Plug 'https://github.com/xolox/vim-lua-ftplugin'
 
+"TMUX / VIM Naviagor
+Plug 'christoomey/vim-tmux-navigator'
+
+"RUST
+Plug 'https://github.com/vim-syntastic/syntastic.git'
 Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'neomake/neomake'
 
 "Plug 'Shougo/neosnippet'
 "Plug 'Shougo/neosnippet-snippets'
@@ -165,6 +172,29 @@ Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
 call plug#end()
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:racer_experimental_completer = 1
+set hidden
+let g:racer_cmd = "~/.cargo/bin/racer"
+
+au BufNewFile,BufRead,BufReadPost *.rc set syntax=rust
+
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+" When reading a buffer (after 1s), and when writing (no delay).
+call neomake#configure#automake('rw', 1000)
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -267,3 +297,6 @@ set completeopt-=preview
 
 " Give a shortcut key to NERD Tree
 map <F8> :NERDTreeToggle<CR>
+
+" RUST
+map <F5> :RustRun<CR>
