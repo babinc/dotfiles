@@ -1,6 +1,4 @@
-ZSH_TMUX_AUTOSTART=true
-ZSH_TMUX_AUTOCONNECT=true
-ZSH_TMUX_AUTOQUIT=true
+#ZSH_TMUX_AUTOQUIT=true
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -12,6 +10,25 @@ ZSH_TMUX_AUTOQUIT=true
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+
+export ANDROID_HOME=~/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+
+export PATH=/Users/carmanbabin/Documents/mongodb/bin:$PATH
+
+export AWS_REGION=us-west-2
+export NODE_ENV=development
+
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+PATH="$PATH:/Users/carmanbabin/.mos/bin"
+
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/Volumes/case-sensitive/esp-open-sdk/xtensa-lx106-elf/bin:$PATH"
+export GOPATH=$HOME/go
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -40,7 +57,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -64,11 +81,7 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  npm
-  yarn
-  osx
-  tmux
-  aws
+  nvm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -100,4 +113,10 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+ alias vim="nvim"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/carmanbabin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/carmanbabin/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/carmanbabin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/carmanbabin/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
