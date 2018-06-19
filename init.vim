@@ -19,6 +19,9 @@ set backspace=indent,eol,start    " Intuitive backspacing.
 set hidden                        " Handle multiple buffers better.
 set noshowmatch
 
+set noswapfile
+set foldmethod=indent
+
 " NoMatchParen " This doesnt work as it belongs to a plugin, which is only loaded _after_ all files are.
 " Trying disable MatchParen after loading all plugins
 
@@ -113,6 +116,8 @@ Plug 'https://github.com/pangloss/vim-javascript.git'
 
 Plug 'tpope/vim-fugitive'
 
+Plug 'git://github.com/tpope/vim-speeddating.git'
+
 Plug 'https://github.com/tpope/vim-git.git'
 
 Plug 'git://github.com/tpope/vim-surround.git'
@@ -169,6 +174,7 @@ Plug 'neomake/neomake'
 "Plug 'Shougo/neosnippet-snippets'
 
 "Plug 'honza/vim-snippets'
+Plug 'jceb/vim-orgmode'
 
 " Initialize plugin system
 call plug#end()
@@ -282,8 +288,8 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
 "folding
-set foldmethod=syntax
-set foldlevel=20
+" set foldmethod=syntax
+" set foldlevel=20
 
 "javaScript
 let g:javascript_plugin_flow = 1

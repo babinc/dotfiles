@@ -26,7 +26,7 @@ alias sudo='sudo env PATH=$PATH'
 [ -z "$PS1" ] && return
 
 function cd {
-  builtin cd "$@" && ls -F
+  builtin cd "$@" && ls --color=tty
 }
 export PATH=/home/carman/.local/bin:/home/carman/.nvm/versions/node/v8.1.4/bin:/home/ubuntu/.local/bin:/home/ubuntu/bin:/home/ubuntu/.local/bin:/usr/local/nvm/versions/node/v8.1.4/bin:/home/ubuntu/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 
