@@ -210,15 +210,20 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-let g:ale_fixers = {
-\  'javascript': ['eslint']
-\}
+let g:neomake_javascript_eslint_exe = system('PATH=$(npm bin):$PATH && which eslint | tr -d "\n"')
+let g:neomake_javascript_enabled_makers = ['eslint']
 
+" neomake
+nmap <Leader><Space>o :lopen<CR>      " open location window
+nmap <Leader><Space>c :lclose<CR>     " close location window
+nmap <Leader><Space>, :ll<CR>         " go to current error/warning
+nmap <Leader><Space>n :lnext<CR>      " next error/warning
+nmap <Leader><Space>p :lprev<CR>      " previous error/warning
 
 let g:deoplete#enable_at_startup = 1
 
 " Set bin if you have many instalations
-let g:deoplete#sources#ternjs#tern_bin = '/home/carman/.nvm/versions/node/v8.7.0/bin/ternjs'
+let g:deoplete#sources#ternjs#tern_bin = '/Users/carmanbabin/.nvm/versions/node/v10.1.0/bin/ternjs'
 let g:deoplete#sources#ternjs#timeout = 1
 
 " Whether to include the types of the completions in the result data. Default: 0
