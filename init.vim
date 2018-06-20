@@ -5,6 +5,9 @@ set termguicolors
 
 set nocompatible                  " Must come first because it changes other options.
 
+" change leader key
+let mapleader = ","
+
 " 256-color terminal
 
 syntax enable                     " Turn on syntax highlighting.
@@ -164,10 +167,14 @@ Plug 'https://github.com/xolox/vim-lua-ftplugin'
 "TMUX / VIM Naviagor
 Plug 'christoomey/vim-tmux-navigator'
 
-"RUST
 Plug 'https://github.com/vim-syntastic/syntastic.git'
+
+"RUST
+Plug 'roxma/nvim-completion-manager'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'roxma/nvim-cm-racer'
+
 Plug 'neomake/neomake'
 
 "Plug 'Shougo/neosnippet'
@@ -310,4 +317,4 @@ set completeopt-=preview
 map <F8> :NERDTreeToggle<CR>
 
 " RUST
-map <F5> :RustRun<CR>
+nmap <leader>r :RustRun<CR>
