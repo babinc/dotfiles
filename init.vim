@@ -201,10 +201,15 @@ let g:racer_cmd = "~/.cargo/bin/racer"
 
 au BufNewFile,BufRead,BufReadPost *.rc set syntax=rust
 
+" RUST
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+let g:rustfmt_autosave = 1
+
+nmap <leader>r :! cargo run<CR>
 
 " When reading a buffer (after 1s), and when writing (no delay).
 call neomake#configure#automake('rw', 1000)
@@ -315,6 +320,3 @@ set completeopt-=preview
 
 " Give a shortcut key to NERD Tree
 map <F8> :NERDTreeToggle<CR>
-
-" RUST
-nmap <leader>r :RustRun<CR>
