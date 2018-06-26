@@ -170,6 +170,9 @@ Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'neomake/neomake'
 
+"markdown
+Plug 'https://github.com/shime/vim-livedown.git'
+
 "Plug 'Shougo/neosnippet'
 "Plug 'Shougo/neosnippet-snippets'
 
