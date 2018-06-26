@@ -5,6 +5,9 @@ set termguicolors
 
 set nocompatible                  " Must come first because it changes other options.
 
+" change leader key
+let mapleader = ","
+
 " 256-color terminal
 
 syntax enable                     " Turn on syntax highlighting.
@@ -164,10 +167,14 @@ Plug 'https://github.com/xolox/vim-lua-ftplugin'
 "TMUX / VIM Naviagor
 Plug 'christoomey/vim-tmux-navigator'
 
-"RUST
 Plug 'https://github.com/vim-syntastic/syntastic.git'
+
+"RUST
+Plug 'roxma/nvim-completion-manager'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'roxma/nvim-cm-racer'
+
 Plug 'neomake/neomake'
 
 "markdown
@@ -197,10 +204,15 @@ let g:racer_cmd = "~/.cargo/bin/racer"
 
 au BufNewFile,BufRead,BufReadPost *.rc set syntax=rust
 
+" RUST
 au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+let g:rustfmt_autosave = 1
+
+nmap <leader>r :! cargo run<CR>
 
 " When reading a buffer (after 1s), and when writing (no delay).
 call neomake#configure#automake('rw', 1000)
@@ -311,6 +323,3 @@ set completeopt-=preview
 
 " Give a shortcut key to NERD Tree
 map <F8> :NERDTreeToggle<CR>
-
-" RUST
-map <F5> :RustRun<CR>
