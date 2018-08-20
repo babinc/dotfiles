@@ -4,6 +4,10 @@
 set termguicolors
 
 set nocompatible                  " Must come first because it changes other options.
+set mouse=a
+
+set autoread
+au CursorHold * checktime
 
 " change leader key
 let mapleader = ","
@@ -215,7 +219,7 @@ let g:rustfmt_autosave = 1
 nmap <leader>r :! cargo run<CR>
 
 " When reading a buffer (after 1s), and when writing (no delay).
-call neomake#configure#automake('rw', 1000)
+call neomake#configure#automake('rw')
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"

@@ -1,13 +1,17 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export COLORTERM=truecolor
+
+# rust src
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/carman/.oh-my-zsh
+export ZSH=/home/carman/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="bureau"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s`
@@ -28,7 +32,7 @@ alias sudo='sudo env PATH=$PATH'
 [ -z "$PS1" ] && return
 
 function cd {
-  builtin cd "$@" && ls --color=tty
+  builtin cd "$@" && colorls --sd
 }
 export PATH=/home/carman/.local/bin:/home/carman/.nvm/versions/node/v8.1.4/bin:/home/ubuntu/.local/bin:/home/ubuntu/bin:/home/ubuntu/.local/bin:/usr/local/nvm/versions/node/v8.1.4/bin:/home/ubuntu/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 
@@ -146,10 +150,20 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
- alias vim="nvim"
+alias vim="nvim"
+alias ls="colorls --sd"
+
+ # Create environment variable for correct distribution
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/carmanbabin/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/carmanbabin/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/carmanbabin/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/carmanbabin/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+POWERLEVEL9K_MODE='nerdfont-complete'
+source  ~/powerlevel9k/powerlevel9k.zsh-theme
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs newline status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
