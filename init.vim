@@ -76,7 +76,7 @@ set backupdir=~/.vim/.backup//
 
 set directory=~/.vim/.swp//
 
-let g:airline_theme='luna'
+let g:airline_theme='srcery'
 
 set backupcopy=yes
 
@@ -94,7 +94,8 @@ let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_concepts_highlight = 1
 " Or use vividchalk
-colorscheme monokai
+let g:srcery_italic = 1
+colorscheme srcery
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -114,6 +115,8 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'https://github.com/Quramy/tsuquyomi.git'
 
 Plug 'scrooloose/nerdtree'
+
+Plug 'srcery-colors/srcery-vim'
 
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 
